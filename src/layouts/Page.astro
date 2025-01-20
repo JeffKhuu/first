@@ -1,0 +1,41 @@
+---
+import {SITE_DESCRIPTION} from "../constants";
+import Head from "../components/Head.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+const {title, description = SITE_DESCRIPTION} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <Head title={title} description={description} />
+    </head>
+    <body>
+        <main>
+            <Header />
+            <div id="page">
+                <slot />
+            </div>
+            <Footer />
+        </main>
+    </body><script
+        src="https://unpkg.com/littlefoot/dist/littlefoot.js"
+        type="application/javascript"></script>
+
+    <script type="application/javascript">
+        // Start littlefoot and configuration
+        littlefoot.littlefoot({
+            activateOnHover: true,
+            activateDelay: 0,
+            hoverDelay: 10,
+            dismissOnUnhover: true,
+            buttonTemplate: `<button aria-label="Footnote <% number %>" class="littlefoot__button" id="<% reference %>"/><% number %></button>`,
+        });
+    </script>
+</html>

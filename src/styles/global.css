@@ -1,0 +1,244 @@
+:root {
+    --primary-color: #1d1e20;
+    --text-color: #ddd8d3;
+    --secondary-text: #494b4e;
+    --highlight: #ff6600;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin: 3rem;
+}
+
+section {
+    display: grid;
+
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    grid-auto-flow: row;
+
+    grid-template-columns: fit-content(60%);
+}
+
+h1 {
+    font-family: 'Playpen Sans', serif;
+    font-weight: 600;
+}
+
+h2 {
+    font-family: 'Fira Code', serif;
+    font-weight: 800;
+}
+
+p {
+    font-family: 'Fira Code', serif;
+}
+
+a#icon {
+    color: inherit;
+    text-decoration: none;
+}
+
+div#page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    display: grid;
+}
+
+/* Content List */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li a {
+    font-family: 'Fira Code';
+    color: var(--text-color);
+    text-decoration: none;
+    text-align: center;
+
+    display: inline-block;
+}
+
+li a #card{
+    display: grid;
+    align-items: center;
+    max-width: 32rem;
+    height: 12rem;
+    grid-template-columns: 1fr 2fr;
+}
+
+li a #card img {
+    margin-right: 1rem;
+}
+
+li a #card .text {
+    text-align: left;
+}
+
+li a :hover {
+    transition: all .3s ease-in-out;
+    color: #ff6600;
+    
+}
+
+li a #card .text .title {
+    margin: 0;
+}
+
+li a #card .text .description {
+    margin: 0;
+    width: 24rem;
+
+    overflow: hidden;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+    
+
+/* Header Styling */
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    margin-bottom: 2rem;
+
+    max-width: 108rem;
+}
+
+header nav a {
+    color: var(--text-color);
+    transition: all .3s ease-in-out;
+
+    display: inline-block;
+    text-decoration: none;
+
+    font-family: 'Fira Code';
+    margin-left: 1rem;
+}
+
+header nav a:hover {
+    color: var(--highlight);
+    transform: translate(0, -2px);
+}
+
+/* Footer Styling */
+footer {
+    grid-template-columns: minmax(1.2rem, 1fr) minmax(auto, 57ch) minmax(1.2rem, 1fr);
+}
+
+footer p {
+    color: var(--secondary-text);
+}
+
+footer #links {
+    color: var(--secondary-text);
+}
+
+footer #links a:hover {
+    color: var(--highlight);
+}
+
+footer p a {
+    color: var(--secondary-text);
+    transition: all .3s ease-in-out;
+    display: inline-block;
+}
+
+footer p a:hover {
+    color: var(--highlight);
+    transform: translate(0, -2px);
+}
+
+footer #links a {
+    margin: 0rem 0.5rem 0rem 0.5rem;
+}
+
+
+/* Article Posts */
+.post {
+    display: grid;
+    grid-template-columns: minmax(1.2rem, 1fr) minmax(auto, 57ch) minmax(1.2rem, 1fr);
+}
+
+/* position text paragraphs into the second (middle) column */
+.post p {
+    grid-column: 2;
+}
+
+/* position images to take up all three columns */
+.post img {
+    grid-column: 1 / 4;
+    width: 100%;
+    max-width: 100ch;
+    justify-self: center;
+}
+
+article {
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 64rem;
+}
+
+article section {
+    text-align: left;
+    justify-content: center;
+}
+
+article section h1 {
+    text-align: left;
+    justify-content: left;
+}
+
+article h1 {
+    text-align: center;
+}
+
+/* littlefoot configuration */
+.littlefoot {
+    /* A gray rounded square moved up */
+    top: -0.5em;
+    left: -0.15em;
+    --button-border-radius: 4px;
+    --button-padding: 0px 0.4em;
+    --button-margin: 0px;
+    --button-background-color: #969696;
+    --button-active-background-color: #ff6600;
+    --button-text-color: var(--text-color);
+
+    /* Darkened popover */
+    --popover-background-color: #252525;
+    --popover-text-color: var(--text-color);
+
+}
+
+/* Nutshell Styling*/
+.nutshell-bubble {
+    /* Gon' stretch out */
+    display: block;
+    width: 100%;
+
+    /* It's nice & speech-bubble-lookin' */
+    border: 1px solid black;
+    /*border: 1px solid #ddd;*/
+    border-radius: 20px;
+
+    /* For the speech-bubble arrow */
+    position: relative;
+    margin-top: 22px;
+
+    /* For subtle move up & down */
+    position: relative;
+    top: 0;
+    transition: top 0.3s linear;
+}
+
+button.nutshell-bubble-overflow-close {
+    color: var(--text-color);
+}

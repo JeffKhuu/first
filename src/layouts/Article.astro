@@ -1,0 +1,23 @@
+---
+import type {CollectionEntry} from "astro:content";
+import Page from "./Page.astro";
+
+type Props = CollectionEntry<"article">["data"];
+const {
+    title,
+    description,
+    heroImage = "./default.png",
+    publishDate,
+    tags,
+    nextPost,
+} = Astro.props;
+---
+
+<Page title={title} description={description}>
+    <article>
+        <div id="post">
+            <h1>{title}</h1>
+            <slot />
+        </div>
+    </article>
+</Page>

@@ -1,0 +1,42 @@
+---
+import Head from "../../components/Head.astro";
+import {SITE_TITLE, SITE_DESCRIPTION} from "../../constants";
+import Page from "../../layouts/Page.astro";
+import {type CollectionEntry, getCollection} from "astro:content";
+
+type Props = CollectionEntry<"article">;
+
+const posts = (await getCollection("article")).sort(
+    (a: Props, b: Props) =>
+        b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+---
+
+<Page title={SITE_TITLE}>
+    <section>
+        <h1>Content</h1>
+        <p>Here is a list of all available content!</p>
+        <ul>
+            {
+                posts.map((post: Props) => (
+                    <li>
+                        <a href={`/first/articles/${post.id}/`}>
+                            <div id="card">
+                                <img
+                                    width={160}
+                                    height={90}
+                                    src={post.data.heroImage}
+                                />
+                                <div class="text">
+                                    <h4 class="title">{post.data.title}</h4>
+                                    <p class="description">{post.data.description}</p>
+                                </div>
+                                
+                            </div>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+</Page>

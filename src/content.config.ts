@@ -11,7 +11,7 @@ const article = defineCollection({
         tags: z.array(z.string()),
 
         publishDate: z.string().transform((str) => new Date(str)),
-        nextPost: reference('article')
+        nextPost: reference('article').optional()
     })
 })
 

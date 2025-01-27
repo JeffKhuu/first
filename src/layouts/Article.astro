@@ -1,6 +1,9 @@
 ---
 import type {CollectionEntry} from "astro:content";
 import Page from "./Page.astro";
+import Head from "../components/Head.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 type Props = CollectionEntry<"article">["data"];
 const {
@@ -13,11 +16,43 @@ const {
 } = Astro.props;
 ---
 
-<Page title={title} description={description}>
-    <article>
-        <div id="post">
-            <h1>{title}</h1>
-            <slot />
-        </div>
-    </article>
-</Page>
+<!doctype html>
+<html lang="en">
+    <head>
+        <Head title={title} description={description} />
+    </head>
+    <body>
+        <main>
+            <div style="margin-bottom: 2rem;">
+                <img class="hero" src={heroImage} />
+                <div class="overlay">
+                    <Header />
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </div>
+            </div>
+            
+            <div id="page">
+                <article>
+                    <div id="post">
+                        <slot />
+                    </div>
+                </article>
+            </div>
+            <Footer />
+        </main>
+    </body><script
+        src="https://unpkg.com/littlefoot/dist/littlefoot.js"
+        type="application/javascript"></script>
+
+    <script type="application/javascript">
+        // Start littlefoot and configuration
+        littlefoot.littlefoot({
+            activateOnHover: true,
+            activateDelay: 0,
+            hoverDelay: 10,
+            dismissOnUnhover: true,
+            buttonTemplate: `<button aria-label="Footnote <% number %>" class="littlefoot__button" id="<% reference %>"/><% number %></button>`,
+        });
+    </script>
+</html>

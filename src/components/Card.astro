@@ -1,0 +1,26 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    link: string;
+    heroImage?: string;
+}
+
+const { title, description, link, heroImage = "/first/default.png"} = Astro.props
+---
+
+<li>
+    <a href={`/first/articles/${link}/`}>
+        <div id="card">
+            <img
+                width={160}
+                height={80}
+                src={heroImage}
+            />
+            <div class="text">
+                <h4 class="title">{title}</h4>
+                <p class="description">{description}</p>
+            </div>
+        </div>
+    </a>
+</li>

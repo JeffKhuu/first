@@ -1,16 +1,36 @@
 ---
 import Welcome from "../components/Welcome.astro";
 import Page from "../layouts/Page.astro";
+import Card from "../components/Card.astro";
 import Note from "../components/footnotes/Note.astro";
 import Footnotes from "../components/footnotes/Footnotes.astro";
+
+import {type CollectionEntry, getCollection} from "astro:content";
+
+type Props = CollectionEntry<"article">;
+
+const posts = (await getCollection("article")).sort(
+    (a: Props, b: Props) =>
+        b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
 ---
 
-<Page title="Your FIRST Crash Course">
+<Page title="Learning Java for the FTC?">
 	<div>
 		<Welcome />
 
 		<section>
-
+			<ul>
+				{
+					posts.filter((post: Props) => post.data.tags.includes("featured")).map((post: Props) => (
+						<Card 
+						title={post.data.title} 
+						description={post.data.description} 
+						link={post.id}
+						heroImage={post.data.heroImage} />
+					))
+				}
+			</ul>
 		</section>
 	</div>
 </Page>

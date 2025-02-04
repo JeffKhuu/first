@@ -11,7 +11,7 @@ type Props = CollectionEntry<"article">;
 
 const posts = (await getCollection("article")).sort(
     (a: Props, b: Props) =>
-        b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+        a.data.publishDate.valueOf() - b.data.publishDate.valueOf(),
 );
 ---
 

@@ -1,20 +1,52 @@
 ---
-import { type CollectionEntry, getCollection, render } from "astro:content";
+import {type CollectionEntry, getCollection, render} from "astro:content";
 import Article from "../../layouts/Article.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("article");
     return posts.map((post: Props) => ({
-        params: { slug: post.id },
+        params: {slug: post.id},
         props: post,
     }));
 }
 type Props = CollectionEntry<"article">;
 
 const post = Astro.props;
-const { Content } = await render(post);
+const {Content} = await render(post);
 ---
 
 <Article {...post.data}>
     <Content />
+
+    <script>
+        let blocks = document.querySelectorAll("pre:has(code)");
+        let copyButtonLabel = "Copy";
+
+        blocks.forEach((block) => {
+            // only add button if browser supports Clipboard API
+            if (navigator.clipboard) {
+                let button = document.createElement("button");
+
+                button.innerText = copyButtonLabel;
+                block.appendChild(button);
+
+                button.addEventListener("click", async () => {
+                    await copyCode(block, button);
+                });
+            }
+        });
+
+        async function copyCode(block: any, button: any) {
+            let code = block.querySelector("code");
+            let text = code.innerText;
+
+            await navigator.clipboard.writeText(text);
+
+            button.innerText = "Copied";
+
+            setTimeout(()=> {
+            button.innerText = copyButtonLabel;
+            },700)
+        }
+    </script>
 </Article>

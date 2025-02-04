@@ -8,11 +8,11 @@ type Props = CollectionEntry<"article">;
 
 const posts = (await getCollection("article")).sort(
     (a: Props, b: Props) =>
-        b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+        a.data.publishDate.valueOf() - b.data.publishDate.valueOf(),
 );
 ---
 
-<Page title={SITE_TITLE}>
+<Page title=`Learning... ${SITE_TITLE}`>
     <section>
         <h1>Content</h1>
         <p>Here is a list of all available content!</p>

@@ -1,5 +1,6 @@
 :root {
     --primary-color: #1d1e20;
+    --secondary-color: #969696;
     --text-color: #ddd8d3;
     --secondary-text: #494b4e;
     --highlight: #ff6600;
@@ -76,6 +77,7 @@ li a #card {
 
     transition: all .1s ease-in-out;
 
+    background-color: var(--primary-color);
     border: 1px solid #41454e;
 }
 
@@ -209,7 +211,47 @@ article h1 {
         color: var(--highlight);        
         transform: translate(0, -2px);
     }
+
+    pre:has(code) {
+        position: relative;
+        grid-column: 1/4;
+        width: 100%;
+        max-width: 100ch;
+        justify-self: center;
+        overflow: visible;
+        padding: 2rem 2rem 1rem 2rem;
+
+        code {
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        
+    }
+    
+    pre:has(code) button {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+    }
+
+    pre button {
+        text-decoration: none;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+
+        padding: 3px 12px 3px 12px;
+        border: none;
+        border-radius: 2px;
+        transition: all .3s ease-in-out;
+    }
+
+    pre button:hover {
+        background-color: var(--highlight);
+        cursor: pointer;
+    }
+
 }
+
 /* position text paragraphs into the second (middle) column */
 #post p {
     grid-column: 2;
@@ -288,7 +330,7 @@ img.hero {
     --button-border-radius: 4px;
     --button-padding: 0px 0.4em;
     --button-margin: 0px;
-    --button-background-color: #969696;
+    --button-background-color: var(--secondary-color);
     --button-active-background-color: var(--highlight);
     --button-text-color: var(--text-color);
 

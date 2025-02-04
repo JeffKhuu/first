@@ -49,7 +49,7 @@ Browse the [articles](/first/articles) and see if my explanations are something 
 [^5]: Go [Nighthawks!](https://ftc-events.firstinspires.org/2023/team/24124)
 
 # :x What is the FIRST Tech Challenge?
-The FIRST Tech Challenge is an annual robotics competitions targeted towards teenagers and young adults hosted by FIRST Inspires. If you'd like to learn more click [here](https://www.firstinspires.org/robotics/ftc)!
+The FIRST Tech Challenge is an annual robotics competitions targeted towards teenagers and young adults hosted by FIRST. If you'd like to learn more click [here](https://www.firstinspires.org/robotics/ftc)!
 
 # :x Nutshell
 Woah! An expandable textbox! Perfect to describe things in detail or go off on tangents. 

@@ -57,6 +57,7 @@ div#page {
 ul {
     list-style-type: none;
     padding: 0;
+    
 }
 
 li a {
@@ -64,6 +65,7 @@ li a {
     color: var(--text-color);
     text-decoration: none;
     text-align: center;
+    padding: 10px 0px 10px 0px;
 
     display: inline-block;
 }
@@ -74,7 +76,7 @@ li a #card {
     max-width: 36rem;
     height: 5rem;
     grid-template-columns: 1fr 2.5fr;
-
+    
     transition: all .1s ease-in-out;
 
     background-color: var(--primary-color);
@@ -180,27 +182,32 @@ article h1 {
     display: grid;
     grid-template-columns: minmax(1.2rem, 1fr) minmax(auto, 3fr) minmax(1.2rem, 1fr);
     grid-column: 2;
-    margin-bottom: 12rem;
+    margin-bottom: 3rem;
 
     ul {
         text-align: left;
         list-style-type: square;
         grid-column: 2;
+        margin: 0 4rem 0 4rem;
         li {
             font-family: 'Fira Code';
         }
     }
 
     h1 {
+        
         grid-column: 2;
         font-family: 'Funnel Sans';
         font-weight: bolder;
+        padding: 3rem 0 0 0;
     }
 
     h2 {
         grid-column: 2;
+        font-size: 28px;
         font-family: 'Funnel Sans';
         font-weight: bold;
+        padding: 2rem 0 0 0;
     }
 
     a {
@@ -220,12 +227,12 @@ article h1 {
         justify-self: center;
         overflow: visible;
         padding: 2rem 2rem 1rem 2rem;
+        border-radius: 15px;
 
         code {
             white-space: pre-wrap;
             word-break: break-all;
         }
-        
     }
     
     pre:has(code) button {
@@ -250,6 +257,12 @@ article h1 {
         cursor: pointer;
     }
 
+    table, th, td {
+        grid-column: 2;
+        font-family: 'Fira Code';
+        padding: 4px 10px 4px 10px;
+    }
+
 }
 
 /* position text paragraphs into the second (middle) column */
@@ -268,7 +281,7 @@ article h1 {
 article {
     line-height: 1.6;
     margin: 0 auto;
-    max-width: 64rem;
+    max-width: 72rem;
 
     section {
         text-align: left;
@@ -299,7 +312,14 @@ article h1 {
     
 
     h1 {
+        position: relative;
+        top: -2rem;
         font-family: 'Funnel Sans';
+    }
+
+    p {
+        position: relative;
+        top: -3rem;
     }
 
     Header {
